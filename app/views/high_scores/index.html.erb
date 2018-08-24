@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<h1>High Scores</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Game</th>
+      <th>Score</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @high_scores.each do |high_score| %>
+      <tr>
+        <td><%= high_score.game %></td>
+        <td><%= high_score.score %></td>
+        <td><%= link_to 'Show',high_score,:class => 'btn btn-success'%></td>
+        <td><%= link_to 'Edit', edit_high_score_path(high_score),:class=> "btn btn-success" %></td>
+        <td><%= link_to 'Destroy', high_score, method: :delete,:class=>"btn btn-primary", data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+
+<br>
+
+<%= link_to 'New High Score', new_high_score_path, :class=>"btn btn-success"%>
